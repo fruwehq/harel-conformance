@@ -47,7 +47,7 @@ positional case names restrict the run. Exit code is non-zero on any failure.
 | 13–15 | spawn + directed/subscribed publish + scope, `external`/`env`/`refresh` |
 | 16–20 | timers, faults + dead-letter, static contracts (pass/fail) |
 | 21–22 | snapshot round-trip, safe-point migration |
-| cli/01–02 | CLI surface + JSON shapes, and batch/streaming mode (§13.6/§13.7) |
+| cli/01–03 | CLI surface + JSON shapes, batch/streaming mode, and manual stepping/inspection (§13.6/§13.7/§14) |
 
 ## License
 MIT — see [LICENSE](LICENSE).
