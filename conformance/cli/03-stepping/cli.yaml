@@ -9,7 +9,7 @@ steps:
       - [mode, manual]
       - [send, t1, coin, --payload, "amount=100"]   # enqueued, NOT processed -> still locked
       - [inspect, t1]                                # queue non-empty, config unchanged
-      - [step, t1, --steps, 1]                       # one RTC step -> unlocked, queue drained
+      - [step, t1, --steps, "1"]                       # one RTC step -> unlocked, queue drained
       - [mode, auto]                                 # back to auto processing
     expect:
       exit: 0
