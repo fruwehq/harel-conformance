@@ -50,6 +50,7 @@ positional case names restrict the run. Exit code is non-zero on any failure.
 | 23–25 | choice pseudostates — dynamic branch, chained choices, no-`else` rejected (§5.5.1) |
 | 26–28 | static validation — unreachable state, dead branch, reachable-ok (§2) |
 | 29–30 | submachine states — synchronous reuse + completion, parent interrupt (§5.6.1) |
+| 31 | enabled-events introspection from active configuration (§14) |
 | cli/01–03 | CLI surface + JSON shapes, batch/streaming mode, and manual stepping/inspection (§13.6/§13.7/§14) |
 
 ## License
