@@ -15,7 +15,7 @@ Implementations consume this repo as a **pinned git submodule** (single source o
 no copy-paste drift).
 
 ## Layout
-- `conformance/01`–`22` — **engine** cases (SPEC §9). Each `<case>/` has:
+- `conformance/01`–`25` — **engine** cases (SPEC §9). Each `<case>/` has:
   - `machine.yaml` (or versioned `v*.yaml` for migration) — the definition(s),
   - `test.yaml` — the scenario (`steps:` of `send`/`advance`/`upgrade` + `expect`),
   - `contracts/*.yaml` — optional, for contract cases.
@@ -47,6 +47,7 @@ positional case names restrict the run. Exit code is non-zero on any failure.
 | 13–15 | spawn + directed/subscribed publish + scope, `external`/`env`/`refresh` |
 | 16–20 | timers, faults + dead-letter, static contracts (pass/fail) |
 | 21–22 | snapshot round-trip, safe-point migration |
+| 23–25 | choice pseudostates — dynamic branch, chained choices, no-`else` rejected (§5.5.1) |
 | cli/01–03 | CLI surface + JSON shapes, batch/streaming mode, and manual stepping/inspection (§13.6/§13.7/§14) |
 
 ## License
