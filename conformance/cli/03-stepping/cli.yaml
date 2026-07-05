@@ -1,5 +1,5 @@
 title: step-by-step execution + introspection — manual mode, send/inspect/step (SPEC §14)
-# One `harel run -` process holds the in-memory queue between steps. Switching to
+# One `determa-state run -` process holds the in-memory queue between steps. Switching to
 # manual mode makes `send` enqueue without processing; `inspect` shows the pending
 # queue; `step` advances exactly one RTC step. `stream` is compared structurally.
 steps:

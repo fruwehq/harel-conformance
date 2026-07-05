@@ -1,10 +1,10 @@
-# Contributing to harel-conformance
+# Contributing to Determa State conformance
 
-**harel-conformance** is the **language-agnostic conformance suite** — the executable
-correctness target for the harel statechart engine. The prose specification lives in
-[`fruwehq/harel`](https://github.com/fruwehq/harel) (`SPEC.md`, the JSON Schema, and
+**determa-state-conformance** is the **language-agnostic conformance suite** — the executable
+correctness target for the Determa State statechart engine. The prose specification lives in
+[`fruwehq/determa-state-spec`](https://github.com/fruwehq/determa-state-spec) (`SPEC.md`, the JSON Schema, and
 examples); this repository is the **normative** definition of correct behavior, and the
-Python reference implementation ([`fruwehq/harel-python`](https://github.com/fruwehq/harel-python))
+Python reference implementation ([`fruwehq/determa-state-python`](https://github.com/fruwehq/determa-state-python))
 is correct iff it passes. There is **no CI here**; implementations consume this repo as a
 pinned source of truth.
 
@@ -32,8 +32,8 @@ tokens are **strings** — quote numeric flags (e.g. `--steps, "1"`).
 ## Running the CLI runner
 
 ```sh
-python conformance/run_cli.py --cmd "harel"                 # or "python -m harel", "node …"
-python conformance/run_cli.py --cmd "python -m harel" 03-stepping   # one case
+python conformance/run_cli.py --cmd "determa-state"                 # or "python -m determa.state", "node …"
+python conformance/run_cli.py --cmd "python -m determa.state" 03-stepping   # one case
 ```
 
 `--cmd` is the command that invokes the implementation's CLI (shell-quoted); optional
@@ -49,7 +49,7 @@ non-zero on any failure.
 4. **No AI/assistant attribution anywhere** — not in commits, PR bodies, comments, or
    docs (no `Co-Authored-By:`, no "Generated with…"). Commits and PRs read as the
    author's own work.
-5. A new case should land **after** the spec text it pins (link the `fruwehq/harel`
+5. A new case should land **after** the spec text it pins (link the `fruwehq/determa-state-spec`
    issue/PR) and before, or alongside, the implementation that must pass it.
 
 ## Versioning
@@ -57,9 +57,9 @@ non-zero on any failure.
 This repository carries the synchronized version in `VERSION` (currently `0.0.1`); this
 repo's version tracks the spec version in lockstep.
 
-> harel, harel-conformance, and harel-python share one synchronized SemVer version
+> determa-state-spec, determa-state-conformance, and determa-state-python share one synchronized SemVer version
 > (currently pre-1.0 `0.0.x`). A release tags all three `vX.Y.Z` in lockstep; an
-> implementation declares "implements harel spec vX.Y.Z" and pins the conformance suite
+> implementation declares "implements Determa State spec vX.Y.Z" and pins the conformance suite
 > at that tag.
 
 ## License

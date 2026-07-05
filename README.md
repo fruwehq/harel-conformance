@@ -1,13 +1,13 @@
-# harel-conformance
+# Determa State — conformance suite
 
 The **language-agnostic conformance suite** for the
-[**harel**](https://github.com/fruwehq/harel) statechart engine.
+[**Determa State**](https://github.com/fruwehq/determa-state-spec) statechart engine.
 
 This repository — not any single implementation — is the normative definition of
 **correct behavior**. The prose specification lives in
-[`fruwehq/harel`](https://github.com/fruwehq/harel) (`SPEC.md`, the JSON Schema, and
+[`fruwehq/determa-state-spec`](https://github.com/fruwehq/determa-state-spec) (`SPEC.md`, the JSON Schema, and
 examples); this repository holds the **executable correctness target** that every
-implementation (e.g. [`fruwehq/harel-python`](https://github.com/fruwehq/harel-python))
+implementation (e.g. [`fruwehq/determa-state-python`](https://github.com/fruwehq/determa-state-python))
 must pass. Where prose and the suite disagree, **the suite wins** (SPEC §2) and a bug is
 filed against the spec.
 
@@ -22,7 +22,7 @@ no copy-paste drift).
 - `conformance/cli/<case>` — **CLI** cases (SPEC §13.6): a `cli.yaml` of steps plus the
   referenced `machine.yaml`, covering the standard CLI surface and batch/streaming mode.
 - `conformance/run_cli.py` — the **black-box CLI runner**: it shells out to any
-  implementation's `harel` binary as a subprocess (so it is language-agnostic).
+  implementation's `determa-state` binary as a subprocess (so it is language-agnostic).
 
 ## Running
 
@@ -32,8 +32,8 @@ definitions, creates the root, runs each `test.yaml` step to quiescence, then ch
 
 **CLI cases** run black-box against the built/installed binary:
 ```sh
-python conformance/run_cli.py --cmd "harel"            # or "python -m harel", "node …"
-python conformance/run_cli.py --cmd "harel" 01-turnstile   # one case
+python conformance/run_cli.py --cmd "determa-state"            # or "python -m determa.state", "node …"
+python conformance/run_cli.py --cmd "determa-state" 01-turnstile   # one case
 ```
 `--cmd` is the command that invokes the implementation's CLI (shell-quoted); optional
 positional case names restrict the run. Exit code is non-zero on any failure.
