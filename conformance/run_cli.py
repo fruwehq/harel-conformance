@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """Black-box CLI conformance runner (SPEC §13.6).
 
-Language-agnostic: it shells out to an implementation's ``harel`` binary as a
+Language-agnostic: it shells out to an implementation's ``determa-state`` binary as a
 **subprocess** and checks each ``conformance/cli/<case>/cli.yaml`` step against a
 fresh temporary store. Nothing about the implementation's language or internals is
 assumed — only the standardized CLI surface, exit codes, and JSON shapes (SPEC §13).
 
 Usage:
-    python conformance/run_cli.py [--cmd "harel"] [--conformance-dir DIR] [CASE ...]
+    python conformance/run_cli.py [--cmd "determa-state"] [--conformance-dir DIR] [CASE ...]
 
 ``--cmd`` is the command used to invoke the implementation's CLI, split with shell
-quoting (e.g. ``"harel"``, ``"python -m harel"``, ``"node dist/cli.js"``). Optional
+quoting (e.g. ``"determa-state"``, ``"python -m determa.state"``, ``"node dist/cli.js"``). Optional
 positional CASE names restrict the run to those ``cli/<case>`` directories.
 
 Exit code is 0 iff every selected case passes.
@@ -107,7 +107,7 @@ def _check_step(cmd: list[str], store: str, case_dir: Path, step: dict[str, Any]
 def _run_case(cmd: list[str], case_dir: Path) -> str | None:
     """Run one case; return None on pass, else a failure reason."""
     spec = _load_yaml(case_dir / "cli.yaml")
-    with tempfile.TemporaryDirectory(prefix="harel-cli-") as store:
+    with tempfile.TemporaryDirectory(prefix="determa-cli-") as store:
         for i, step in enumerate(spec.get("steps", [])):
             try:
                 _check_step(cmd, store, case_dir, step)
@@ -117,8 +117,8 @@ def _run_case(cmd: list[str], case_dir: Path) -> str | None:
 
 
 def main(argv: list[str] | None = None) -> int:
-    p = argparse.ArgumentParser(description="Black-box harel CLI conformance runner")
-    p.add_argument("--cmd", default="harel", help='invoke the impl CLI (default "harel")')
+    p = argparse.ArgumentParser(description="Black-box Determa State CLI conformance runner")
+    p.add_argument("--cmd", default="determa-state", help='invoke the impl CLI (default "determa-state")')
     p.add_argument(
         "--conformance-dir",
         default=str(Path(__file__).resolve().parent / "cli"),

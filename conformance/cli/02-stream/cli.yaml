@@ -1,5 +1,5 @@
 title: turnstile via batch/streaming mode — NDJSON in, NDJSON out (SPEC §13.7)
-# One `harel run -` process consumes NDJSON argv lines from stdin and emits one
+# One `determa-state run -` process consumes NDJSON argv lines from stdin and emits one
 # NDJSON result object per line. `stream` is compared structurally, line by line.
 # A failing line (here: send to a missing instance) does NOT abort the stream;
 # the process exit code is the first non-zero line exit (§13.7).
