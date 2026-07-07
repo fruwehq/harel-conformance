@@ -14,7 +14,7 @@ steps:
     expect:
       exit: 0
       stream:
-        - { ok: true, exit: 0, result: { instance: t1, def: "turnstile@1", status: active, config: [locked], esvs: { fare: 50 } } }
+        - { ok: true, exit: 0, result: { instance: t1, definition: "turnstile@1", status: active, config: [locked], esvs: { fare: 50 } } }
         - { ok: true, exit: 0, result: { mode: manual } }
         - { ok: true, exit: 0, result: { instance: t1, status: active, config: [locked] } }
         - { ok: true, exit: 0, result: { instance: t1, status: active, config: [locked], queue: [{ type: coin }] } }
